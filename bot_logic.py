@@ -13,9 +13,9 @@ def handle_message(message, bot_name, secret_key, api_url):
     # Find all 8-10 digit numbers in the message
     numbers = re.findall(r'\b\d{8,10}\b', message)
     if not numbers:
-        return "No valid numbers found in the message."
+        return None
 
-    response_messages = []
+    response_messages = ['WOS-ID: Nickname']
     current_time = int(time.time() * 1000)
 
     for number in numbers:
