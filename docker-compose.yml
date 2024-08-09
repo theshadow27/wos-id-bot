@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  discord-bot:
+    build: .
+    environment:
+      - DISCORD_CHANNEL_ID=${DISCORD_CHANNEL_ID}
+      - DISCORD_BOT_NAME=${DISCORD_BOT_NAME}
+      - SECRET_KEY=${SECRET_KEY}
+      - API_URL=${API_URL}
+      - DISCORD_TOKEN=${DISCORD_TOKEN}
+    restart: unless-stopped
