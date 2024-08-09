@@ -1,5 +1,7 @@
 import os
 from bot_logic import handle_message
+from dotenv import load_dotenv
+load_dotenv()
 
 def main():
     # Load configuration from environment variables

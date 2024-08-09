@@ -2,6 +2,9 @@ import os
 import discord
 from bot_logic import handle_message
 
+from dotenv import load_dotenv
+load_dotenv()
+
 # Load configuration from environment variables
 CHANNEL_ID = int(os.getenv('DISCORD_CHANNEL_ID'))
 BOT_NAME = os.getenv('DISCORD_BOT_NAME')
