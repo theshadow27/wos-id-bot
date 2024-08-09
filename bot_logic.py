@@ -15,7 +15,7 @@ def handle_message(message, bot_name, secret_key, api_url):
     if not numbers:
         return None
 
-    response_messages = ['WOS-ID: Nickname']
+    response_messages = []
     current_time = int(time.time() * 1000)
 
     for number in numbers:

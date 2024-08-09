@@ -8,6 +8,7 @@ load_dotenv()
 # Load configuration from environment variables
 SECRET_KEY = os.getenv('SECRET_KEY')
 API_URL = os.getenv('API_URL')
+BOT_NAME = 'foo'
 
 # Define the bot with intents
 intents = discord.Intents.default()
@@ -20,10 +21,12 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
+    if message.author == client.user:
+        return
+    
     response = handle_message(message.content, BOT_NAME, SECRET_KEY, API_URL)
-    if response:
+    if response is not None:
         await message.channel.send(response)
-
+        
 # Run the bot with the token
 client.run(os.getenv('DISCORD_TOKEN'))
-
